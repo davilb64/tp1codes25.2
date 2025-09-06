@@ -1,24 +1,65 @@
 #include <iostream>
-#include <stdio.h>
-#include <string>
+#include <map>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+#include <cctype>
 
-typedef struct abrevs{
-    char sigla[100];
-    char nome[100];
-} Abrevs;
-
-int main(){
+int main() {
     int siglas;
     std::cin >> siglas;
-    Abrevs dicionario[siglas];
+
+    std::map<std::string, std::string> dicionario;
+    std::vector<std::string> ordem;
+
     for (int i = 0; i < siglas; i++) {
-        std::cin >> dicionario[i].sigla;
-        std::cin >> dicionario[i].nome;
+        std::string sigla, palavra;
+        std::cin >> sigla >> palavra;
+        ordem.push_back(sigla);
+        std::string lowerSigla = sigla;
+        std::transform(lowerSigla.begin(), lowerSigla.end(), lowerSigla.begin(), ::tolower);
+        dicionario[lowerSigla] = palavra;
     }
+
+    std::cin.ignore();
+
     std::string consulta;
     std::getline(std::cin, consulta);
-    std::string traducao;
-    for (int i = 0; i < consulta.size(); i++) {
 
+    std::stringstream ss(consulta);
+    std::string palavra;
+    std::vector<std::string> palavras;
+
+    while (ss >> palavra) {
+        std::string original = palavra;
+        std::string lowerPalavra = palavra;
+        std::transform(lowerPalavra.begin(), lowerPalavra.end(), lowerPalavra.begin(), ::tolower);
+
+        if (dicionario.find(lowerPalavra) != dicionario.end()) {
+            palavra = dicionario[lowerPalavra];
+        }
+
+        else if (std::isupper(original[0])) {
+            palavra[0] = std::toupper(original[0]);
+            for (size_t i = 1; i < original.size(); i++) {
+                palavra[i] = original[i];
+            }
+        }
+
+        else {
+            palavra = original;
+        }
+
+        palavras.push_back(palavra);
     }
+
+    std::string resultado;
+    for (size_t i = 0; i < palavras.size(); i++) {
+        if (i > 0) resultado += " ";
+        resultado += palavras[i];
+    }
+
+    std::cout << resultado << std::endl;
+
+    return 0;
 }
