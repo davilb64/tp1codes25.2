@@ -2,9 +2,9 @@ package aula04;
 
 public class Caneta {
     public String modelo;
-    private float ponta;
-    private boolean tampada;
-    private String cor;
+    private final float ponta;
+    private final boolean tampada;
+    private final String cor;
 
     public Caneta(String cor, boolean tampada, float ponta, String modelo) {
         this.cor = cor;
@@ -17,33 +17,21 @@ public class Caneta {
         return cor;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
 
     public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
 
     public float getPonta() {
         return ponta;
     }
 
-    public void setPonta(float ponta) {
-        this.ponta = ponta;
-    }
 
     public boolean isTampada() {
         return tampada;
     }
 
-    public void setTampada(boolean tampada) {
-        this.tampada = tampada;
-    }
 
 
 
