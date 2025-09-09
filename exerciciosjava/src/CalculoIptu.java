@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CalculoIptu {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        float valorFinal = 0;
+        float valorFinal;
         String tipoLoteamentoStr = entrada.next();
         int tipoLoteamento = Integer.parseInt(tipoLoteamentoStr);
         entrada.nextLine();
