@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.example.demo.HelloController"
+          alignment="CENTER"
+          hgap="10"
+          vgap="10"
+          style="-fx-padding: 20;">
+
+    <!-- Campo Nome -->
+    <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="nomeCadastroCliente" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="250"/>
+
+    <!-- Campo CPF -->
+    <Label text="CPF:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="cpfCadastroCliente" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <!-- Campo Telefone -->
+    <Label text="Telefone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="telefoneCadastroCliente" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <!-- Campo Endereço -->
+    <Label text="Endereço:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="enderecoCadastroCliente" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <!-- Botões -->
+    <HBox spacing="10" alignment="CENTER" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">
+        <Button fx:id="buttonSalvarCadastroCliente" text="Salvar" onAction="#salvarCadastro"/>
+        <Button fx:id="buttonAlterarCadastroCliente" text="Alterar" onAction="#alterarCadastro"/>
+        <Button fx:id="buttonExcluirCadastroCliente" text="Excluir" onAction="#excluirCadastro"/>
+        <Button fx:id="buttonPesquisarCliente" text="Pesquisar" onAction="#pesquisarCliente"/>
+    </HBox>
+
+</GridPane>

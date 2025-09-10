@@ -1,0 +1,4 @@
+Time: 0 ; 50 votos
+Time: 1 ; 2 votos
+Time: 2 ; 1 votos
+Time: 3 ; 3 votos
