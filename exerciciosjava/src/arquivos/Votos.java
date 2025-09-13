@@ -15,6 +15,7 @@ public class Votos {
         for (int i = 0; i < 4; i++) {
             escrita.write("Time: " + i + ": " + votos[i] + " votos\n");
         }
+
         System.out.println("Votos Registrados!");
         escrita.close();
         entrada.close();

@@ -13,11 +13,11 @@ public class Caneta {
         System.out.println("Ponta: " + this.ponta);
         System.out.println("Carga: " + this.carga);
         System.out.println("Tampada: " + this.tampada);
-        System.out.printf("\n");
+        System.out.print("\n");
     }
 
     void rabiscar(){
-        if(this.tampada == true){
+        if(this.tampada){
             System.out.println("ERRO! Não posso rabiscar");
         }
         else{
