@@ -1,3 +1,5 @@
+package aprendendojava;
+
 import java.util.Scanner;
 import java.util.LinkedHashMap;
 
