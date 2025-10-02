@@ -2,10 +2,9 @@ package designcominterfacegrafica.rotadf.controller;
 
 import designcominterfacegrafica.rotadf.Veiculo;
 import designcominterfacegrafica.rotadf.util.ScreenController;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -14,15 +13,45 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class veiculosController {
+public class veiculosController implements Initializable {
+
     @FXML
     private TableView<Veiculo> tblVeiculos;
     @FXML
     private TableColumn<Veiculo, String> colModelo;
     @FXML
     private TableColumn<Veiculo, String> colPlaca;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        colModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+        colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        carregarVeiculos();
+    }
+
+    private void carregarVeiculos() {
+        List<Veiculo> lista = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("veiculos.csv"))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String[] partes = linha.split(";");
+                if (partes.length == 2) {
+                    lista.add(new Veiculo(partes[0].trim(), partes[1].trim()));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        tblVeiculos.getItems().setAll(lista);
+    }
 
 
     @FXML
@@ -38,6 +67,7 @@ public class veiculosController {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
 
+        carregarVeiculos();
     }
 
     @FXML

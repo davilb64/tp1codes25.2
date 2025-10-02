@@ -1,14 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="designcominterfacegrafica.rotadf.controller.motoristasController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="designcominterfacegrafica.rotadf.controller.motoristasController">
+    <bottom>
+        <VBox prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="© 2025 RotaDF" />
+            </children>
+        </VBox>
+    </bottom>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#cadastrarMotorista" text="Novo Motorista">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <TableView fx:id="tblMotoristas" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
+                        <TableColumn fx:id="colCnh" prefWidth="75.0" text="CNH" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+                <Button mnemonicParsing="false" onAction="#sair" text="Voltar">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </center>
+    <top>
+        <Label prefHeight="25.0" prefWidth="725.0" text="Motoristas" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+    </top>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</BorderPane>
