@@ -26,7 +26,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <TableView fx:id="tblMotoristas" prefHeight="200.0" prefWidth="200.0">
+                <TableView fx:id="tblMotoristas" prefHeight="277.0" prefWidth="560.0">
                     <columns>
                         <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
                         <TableColumn fx:id="colCnh" prefWidth="75.0" text="CNH" />
