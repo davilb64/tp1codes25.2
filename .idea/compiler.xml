@@ -7,11 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
-        <module name="meu-projeto" />
+        <module name="tp1codes25.2" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="tp1codes25.2" target="22" />
-    </bytecodeTargetLevel>
   </component>
 </project>

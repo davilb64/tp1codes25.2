@@ -4,6 +4,8 @@ import designcominterfacegrafica.rotadf.Veiculo;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class modalNovoVeiculoController {
     @FXML
@@ -15,8 +17,13 @@ public class modalNovoVeiculoController {
     private Veiculo veiculo;
 
     @FXML
-    private void salvarVeiculo() {
+    private void salvarVeiculo() throws IOException {
         this.veiculo = new Veiculo(lblModelo.getText(), lblPlaca.getText());
+
+        try (FileWriter escrita = new FileWriter("veiculos.csv", true)) {
+            escrita.write(veiculo.getModelo() + ";" + veiculo.getPlaca() + "\n");
+        }
+
         fecharJanela();
     }
 
@@ -24,9 +31,5 @@ public class modalNovoVeiculoController {
     private void fecharJanela() {
         Stage stage = (Stage) lblModelo.getScene().getWindow();
         stage.close();
-    }
-
-    public Veiculo getVeiculo() {
-        return veiculo;
     }
 }
