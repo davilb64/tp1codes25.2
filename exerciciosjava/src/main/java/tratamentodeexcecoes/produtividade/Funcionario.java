@@ -1,4 +1,4 @@
-package main.java.tratamentodeexcecoes.produtividade;
+package tratamentodeexcecoes.produtividade;
 
 class Funcionario {
     private String nomeFuncionario;

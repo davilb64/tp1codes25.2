@@ -1,4 +1,6 @@
-package main.java.tratamentodeexcecoes.produtividade;
+package tratamentodeexcecoes.produtividade;
+
+import tratamentodeexcecoes.produtividade.Funcionario;
 
 import java.util.Scanner;
 

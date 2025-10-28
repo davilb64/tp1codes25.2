@@ -1,4 +1,4 @@
-package main.java.orientacaoobjeto.banco;
+package orientacaoobjeto.banco;
 
 import java.util.Scanner;
 
